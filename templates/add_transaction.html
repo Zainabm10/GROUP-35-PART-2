@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Transaction</title>
+    <link rel="stylesheet" href="/MyCss/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Student Budget App</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/summary">Monthly Summary</a></li>
+
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="form-container">
+            <h1>Add Transaction</h1>
+            <form method="POST" class="transaction-form">
+                <label for="type">Type:</label>
+                <div class="radio-group">
+                    <input type="radio" id="income" name="type" value="income" required>
+                    <label for="income">Income</label>
+                    <input type="radio" id="expense" name="type" value="expense" required>
+                    <label for="expense">Expense</label>
+                </div>
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" placeholder="Enter category" required>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" step="0.01" required>
+                <button type="submit" class="btn">Add Transaction</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Student Budget App © 2024</p>
+    </footer>
+</body>
+</html>

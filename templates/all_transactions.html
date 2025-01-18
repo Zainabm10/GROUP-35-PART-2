@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Transactions</title>
+    <link rel="stylesheet" href="/MyCss/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/summary">Monthly Summary</a></li>
+                <li><a href="/add_transaction">Add Transaction</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="transactions-container">
+            <h1>All Transactions</h1>
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for transaction in transactions %}
+                    <tr class="{% if transaction['type'] == 'income' %}income{% elif transaction['type'] == 'expense' %}expense{% endif %}">
+                        <td>{{ transaction['type'] }}</td>
+                        <td>{{ transaction['category'] }}</td>
+                        <td>{{ transaction['amount'] }}</td>
+                        <td>{{ transaction['date'] }}</td>
+                        <td>
+                            <a href="/edit_transaction/{{ transaction['id'] }}" class="button edit">Edit</a>
+                            <form action="/delete_transaction/{{ transaction['id'] }}" method="POST" style="display: inline;">
+                                <button type="submit" class="button delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/dashboard" class="view-transactions-btn">Back to Dashboard</a>
+        </div>
+    </main>
+    <footer>
+        <p>Student Budget App © 2024</p>
+    </footer>
+</body>
+</html>

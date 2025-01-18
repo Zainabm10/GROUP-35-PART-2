@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Summary</title>
+    <link rel="stylesheet" href="/MyCss/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Student Budget App</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/add_transaction">Add Transaction</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="summary-container">
+            <h1>Monthly Summary</h1>
+            <p>Here is your monthly summary:</p>
+            <p><strong>Total Income:</strong> ₪{{ total_income }}</p>
+            <p><strong>Total Expenses:</strong> ₪{{ total_expenses }}</p>
+            <p><strong>Balance:</strong>
+                <span class="{% if balance >= 0 %}positive-balance{% else %}negative-balance{% endif %}">
+                    ₪{{ balance }}
+                </span>
+            </p>
+        </div>
+    </main>
+    <footer>
+        <p>Student Budget App © 2024</p>
+    </footer>
+</body>
+</html>

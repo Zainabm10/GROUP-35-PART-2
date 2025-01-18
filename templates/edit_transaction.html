@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Transaction</title>
+    <link rel="stylesheet" href="/MyCss/style.css">
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+        <h1 class="logo">Student Budget App</h1>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/summary">Monthly Summary</a></li>
+            <li><a href="/add_transaction">Add Transaction</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        <div class="form-container">
+            <h2>Edit Transaction</h2>
+            <form method="POST" class="edit-form">
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    <option value="income" {% if transaction['type'] == 'income' %}selected{% endif %}>Income</option>
+                    <option value="expense" {% if transaction['type'] == 'expense' %}selected{% endif %}>Expense</option>
+                </select>
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" value="{{ transaction['category'] }}" required>
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount" value="{{ transaction['amount'] }}" step="0.01" required>
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>Student Budget App © 2024</p>
+    </footer>
+</body>
+</html>
